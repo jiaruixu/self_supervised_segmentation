@@ -1,0 +1,8 @@
+*.pb
+*.ckpt.*
+*.pyc
+*.png
+*.jpg
+events.out.*
+logs
+*.tfrecord
