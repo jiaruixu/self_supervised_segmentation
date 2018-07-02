@@ -10,7 +10,8 @@ python ../models/research/deeplab/eval.py \
     --decoder_output_stride=4 \
     --eval_crop_size=1025 \
     --eval_crop_size=2049 \
+    --eval_batch_size=4 \
     --dataset="mapillary" \
-    --checkpoint_dir="trained_model/trainlog/" \
-    --eval_logdir="eval/" \
-    --dataset_dir="../tfrecord/tfrecord/" &
+    --checkpoint_dir="/mnt/fcav/self_training_segmentation/trainlogs/" \
+    --eval_logdir="/mnt/fcav/self_training_segmentation/eval/" \
+    --dataset_dir="/mnt/fcav/self_training_segmentation/images/tfrecord/" &
