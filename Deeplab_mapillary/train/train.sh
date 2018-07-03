@@ -24,7 +24,7 @@ python ../models/research/deeplab/train.py \
     --weight_decay=0.000015 \
     --fine_tune_batch_norm=True \
     --save_summaries_images=True \
-    --tf_initial_checkpoint="/mnt/fcav/self_training_segmentation/pretrained_model/xception_71/model.ckpt" \
+    --tf_initial_checkpoint="/mnt/fcav/self_training_segmentation/pretrained_model/trainlogs/model.ckpt-50000" \
     --train_logdir="/mnt/fcav/self_training_segmentation/trainlogs/" \
     --dataset_dir="/mnt/fcav/self_training_segmentation/images/tfrecord/" 2>&1 | tee logs/train_$now.txt &
     #--tf_initial_checkpoint="pretrained_model/deeplabv3_pascal_trainval/model.ckpt" \
