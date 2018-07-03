@@ -1,0 +1,27 @@
+## Build image list
+```
+# From left images repository
+find -name "*.png" | sort > /home/jiarui/git/Deeplab_KITTI/image_list_left.txt
+
+# From right images repository
+find -name "*.png" | sort > /home/jiarui/git/Deeplab_KITTI/image_list_right.txt
+```
+
+As working path is `/root/mc-cnn/` and the dataset path has been mounted to `/root/mc-cnn/data`, the format for the `image_list_left.txt` or `image_list_right.txt` should be
+
+```
+./data/{relative_path_to_images}/image_name1.png
+./data/{relative_path_to_images}/image_name2.png
+./data/{relative_path_to_images}/image_name3.png
+...
+```
+
+## Use container-fn
+
+```
+container-fn torch-mc-cnn-feedforward \
+      --dataset-path /home/jiarui/git/Dataset/KITTI/training \
+      --output-path /home/jiarui/git/Deeplab_KITTI/disparity/Disparity \
+      --image-list-left /home/jiarui/git/Deeplab_KITTI/disparity/disparity_files/image_list_left.txt \
+      --image-list-right /home/jiarui/git/Deeplab_KITTI/disparity/disparity_files/image_list_right.txt
+```
