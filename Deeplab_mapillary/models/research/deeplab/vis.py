@@ -97,10 +97,10 @@ _SEMANTIC_PREDICTION_SAVE_FOLDER = 'segmentation_results'
 _RAW_SEMANTIC_PREDICTION_SAVE_FOLDER = 'raw_segmentation_results'
 
 # The format to save image.
-_IMAGE_FORMAT = '%s_image'
+_IMAGE_FORMAT = '%s'
 
 # The format to save prediction
-_PREDICTION_FORMAT = '%s_prediction'
+_PREDICTION_FORMAT = '%s'
 
 # To evaluate Cityscapes results on the evaluation server, the labels used
 # during training should be mapped to the labels for evaluation.

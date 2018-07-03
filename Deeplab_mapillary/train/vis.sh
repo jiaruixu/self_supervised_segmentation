@@ -12,6 +12,6 @@ python ../models/research/deeplab/vis.py \
     --vis_crop_size=2049 \
     --dataset="mapillary" \
     --colormap_type="mapillary" \
-    --checkpoint_dir="trained_model/trainlog/" \
-    --vis_logdir="vis/" \
-    --dataset_dir="../tfrecord/tfrecord/" &
+    --checkpoint_dir="/mnt/fcav/self_training_segmentation/trainlogs/" \
+    --vis_logdir="/mnt/fcav/self_training_segmentation/vis/" \
+    --dataset_dir="/mnt/fcav/self_training_segmentation/images/tfrecord/" &

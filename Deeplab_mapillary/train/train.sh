@@ -15,14 +15,14 @@ python ../models/research/deeplab/train.py \
     --decoder_output_stride=4 \
     --train_crop_size=500 \
     --train_crop_size=500 \
-    --train_batch_size=16 \
+    --train_batch_size=8 \
     --num_clones=2 \
     --dataset="mapillary" \
     --save_summaries_secs=60 \
     --base_learning_rate=0.001 \
     --learning_rate_decay_step=200 \
     --weight_decay=0.000015 \
-    --fine_tune_batch_norm=True \
+    --fine_tune_batch_norm=false\
     --save_summaries_images=True \
     --tf_initial_checkpoint="/mnt/fcav/self_training_segmentation/pretrained_model/trainlogs/model.ckpt-50000" \
     --train_logdir="/mnt/fcav/self_training_segmentation/trainlogs/" \
