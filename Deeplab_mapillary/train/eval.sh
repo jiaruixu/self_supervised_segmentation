@@ -12,6 +12,6 @@ python ../models/research/deeplab/eval.py \
     --eval_crop_size=2049 \
     --eval_batch_size=4 \
     --dataset="mapillary" \
-    --checkpoint_dir="/mnt/fcav/self_training_segmentation/trainlogs/" \
-    --eval_logdir="/mnt/fcav/self_training_segmentation/eval/" \
-    --dataset_dir="/mnt/fcav/self_training_segmentation/images/tfrecord/" &
+    --checkpoint_dir="/mnt/fcav/self_training_segmentation/Deeplab_mapillary/trainlogs/" \
+    --eval_logdir="/mnt/fcav/self_training_segmentation/Deeplab_mapillary/eval/" \
+    --dataset_dir="/mnt/fcav/self_training_segmentation/Deeplab_mapillary/images/tfrecord/" &
