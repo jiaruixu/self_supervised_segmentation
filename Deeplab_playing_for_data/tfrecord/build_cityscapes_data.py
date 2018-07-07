@@ -66,6 +66,7 @@ import re
 import sys
 import build_data
 import tensorflow as tf
+import PIL.Image as img
 
 FLAGS = tf.app.flags.FLAGS
 
@@ -118,7 +119,7 @@ def _get_files(data, dataset_split):
     return None
   pattern = '*%s.%s' % (_POSTFIX_MAP[data], _DATA_FORMAT_MAP[data])
   search_files = os.path.join(
-      FLAGS.cityscapes_root, _FOLDERS_MAP[data], dataset_split, '*', pattern)
+      FLAGS.cityscapes_root, _FOLDERS_MAP[data], dataset_split, pattern)
   filenames = glob.glob(search_files)
   return sorted(filenames)
 
@@ -135,6 +136,9 @@ def _convert_dataset(dataset_split):
   """
   image_files = _get_files('image', dataset_split)
   label_files = _get_files('label', dataset_split)
+
+  if not len(image_files) == len(label_files):
+      raise ValueError('Number of images and labels must be tha same.')
 
   num_images = len(image_files)
   num_per_shard = int(math.ceil(num_images / float(_NUM_SHARDS)))
@@ -153,6 +157,13 @@ def _convert_dataset(dataset_split):
         sys.stdout.write('\r>> Converting image %d/%d shard %d' % (
             i + 1, num_images, shard_id))
         sys.stdout.flush()
+        print(' ')
+        print(image_files[i])
+        print(label_files[i])
+
+        image_name = os.path.basename(image_files[i])
+        if not image_name.replace('_leftImg8bit', '_gtFine_labelTrainIds') == os.path.basename(label_files[i]) :
+            raise RuntimeError('Image name and label name are mismatched.')
         # Read the image.
         image_data = tf.gfile.FastGFile(image_files[i], 'rb').read()
         height, width = image_reader.read_image_dims(image_data)

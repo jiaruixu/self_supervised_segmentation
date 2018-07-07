@@ -54,5 +54,5 @@ BUILD_SCRIPT="${CURRENT_DIR}/build_cityscapes_data.py"
 
 echo "Converting Cityscapes dataset..."
 python "${BUILD_SCRIPT}" \
-  --cityscapes_root="/mnt/ngv/datasets/playing-for-data-cityscapes" \
+  --cityscapes_root="/mnt/fcav/datasets/playing-for-data/cityscapes_format" \
   --output_dir="${OUTPUT_DIR}" \
