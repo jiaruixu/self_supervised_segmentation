@@ -117,9 +117,13 @@ def _get_files(data, dataset_split):
   """
   if data == 'label' and dataset_split == 'test':
     return None
+  if dataset_split == 'val':
+      dataset_split_folder = 'val/*'
+  else:
+      dataset_split_folder ='train'
   pattern = '*%s.%s' % (_POSTFIX_MAP[data], _DATA_FORMAT_MAP[data])
   search_files = os.path.join(
-      FLAGS.cityscapes_root, _FOLDERS_MAP[data], dataset_split, pattern)
+      FLAGS.cityscapes_root, _FOLDERS_MAP[data], dataset_split_folder, pattern)
   filenames = glob.glob(search_files)
   return sorted(filenames)
 
